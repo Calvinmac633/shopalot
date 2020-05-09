@@ -5,14 +5,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Form, Button, Table, ThemeProvider } from 'react-bootstrap';
 import API from "../utils/API";
-import Modal from "../components/Modal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import AppBar from "../components/AppBar"
 import CreateListForm from "../components/CreateListForm"
 
 // import codename from ZOEYTHING
-// import Modal from "../components/Modal";
 export function ListPage() {
     const { codename } = useParams();
     const { id } = useParams();
@@ -71,7 +69,6 @@ export function ListPage() {
                 `}
             </style>
             <AppBar link1="/" text1="Gotta Blast">
-                <Modal />
             </AppBar>
             {/* <h1>Your codename is:</h1>
             <h2>{codename}</h2> */}

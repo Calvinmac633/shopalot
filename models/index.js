@@ -1,4 +1,4 @@
 module.exports = {
-    GroceryDB: require("./user")
+    shopalotDB: require("./schema")
   };
   

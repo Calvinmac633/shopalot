@@ -68,8 +68,7 @@ export function ListPage() {
     
                 `}
             </style>
-            <AppBar link1="/" text1="Gotta Blast">
-            </AppBar>
+            <AppBar/>
             {/* <h1>Your codename is:</h1>
             <h2>{codename}</h2> */}
             <br></br>

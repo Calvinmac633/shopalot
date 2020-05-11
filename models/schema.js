@@ -16,5 +16,5 @@ const listSchema = new Schema({
     //reference to User?    
 });
 
-const GroceryDB = mongoose.model("GroceryDB", listSchema);
-module.exports = GroceryDB;
+const shopalotDB = mongoose.model("shopalotDB", listSchema);
+module.exports = shopalotDB;

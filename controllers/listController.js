@@ -4,7 +4,7 @@ const { makeCodename } = require('./utils');
 
 module.exports = {
   create: function (req, res) {
-    db.GroceryDB
+    db.shopalotDB
       .create({ listname: req.params.listname, codename: makeCodename() })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -13,7 +13,7 @@ module.exports = {
 
   findOne: function (req, res) {
     console.log("This is req.params -->", req.params)
-    db.GroceryDB
+    db.shopalotDB
       .findOne({ codename: req.params.codename })
       .then(dbModel => {
         console.log("This is dbModel ---> ", dbModel)
@@ -26,7 +26,7 @@ module.exports = {
   findOneAndUpdate: function (req, res) {
     console.log("This is req.params -->", req.params)
     console.log("This is req.body -->", req.body)
-    db.GroceryDB
+    db.shopalotDB
 
     .findOneAndUpdate(
       { codename: req.params.codename },
@@ -52,7 +52,7 @@ module.exports = {
 
   remove: function(req, res) {
     console.log("THIS IS REQ.PARAMS --->",req.params)
-    db.GroceryDB
+    db.shopalotDB
     .findOneAndUpdate(
       { codename: req.params.codename },
       {
@@ -61,7 +61,7 @@ module.exports = {
       console.log()
       )
 
-      // .populate("grocerydbs")
+      // .populate("shopalotDBs")
       // .then(dbModel => dbModel.remove())
       .then(dbModel => {
         console.log("DELETE BUTTON DBMODEL",dbModel)

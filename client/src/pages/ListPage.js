@@ -68,16 +68,17 @@ export function ListPage() {
     
                 `}
             </style>
-            <AppBar/>
+            <AppBar link1="/" text1={"Your codename is: "+codename}>
+            </AppBar>
             {/* <h1>Your codename is:</h1>
             <h2>{codename}</h2> */}
             <br></br>
             <main role="main">
                 <section>
                     <div class="container">
-                        <h1>Your codename is:</h1>
+                        {/* <h1>Your codename is:</h1>
                         <h2>{codename}</h2>
-                        <br></br>
+                        <br></br> */}
                         <CreateListForm />
                         <div>
                             

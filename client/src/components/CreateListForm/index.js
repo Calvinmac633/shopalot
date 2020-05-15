@@ -45,10 +45,25 @@ function CreateListForm() {
     quantityRef.current.value = "";
   };
 
+  const addFavorite = e => {
+    e.preventDefault();
+    dispatch({ type: LOADING });
+    API.addFavorite(codename, {
+      favorite: true,
+    })
+      .then(result => {
+        dispatch({
+          type: UPDATE_LISTS,
+          list: result.data
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
   return (
     <Form>
       <style type="text/css">
-    {`
+        {`
     .my-btn {
       width: 200;
     margin: auto;
@@ -84,30 +99,30 @@ function CreateListForm() {
 }
     
     `}
-  </style>
+      </style>
       <Form.Group controlId="formSearch">
-      <ThemeProvider prefixes={{ form: 'form-text' }}>      
-        {/* <Form.Text className="text-muted">
+        <ThemeProvider prefixes={{ form: 'form-text' }}>
+          {/* <Form.Text className="text-muted">
           Enter the item name.
           </Form.Text> */}
-          </ThemeProvider>{' '}  
-      <ThemeProvider prefixes={{ form: 'form-control' }}>
-        <Form.Control ref={nameRef} type="text" placeholder="Add Item" />
-        </ThemeProvider>{' '}  
-     
+        </ThemeProvider>{' '}
+        <ThemeProvider prefixes={{ form: 'form-control' }}>
+          <Form.Control ref={nameRef} type="text" placeholder="Add Item" />
+        </ThemeProvider>{' '}
+
       </Form.Group>
       <Form.Group controlId="formQuantity">
-      <ThemeProvider prefixes={{ form: 'form-control' }}>
-      {/* <Form.Text className="text-muted">
+        <ThemeProvider prefixes={{ form: 'form-control' }}>
+          {/* <Form.Text className="text-muted">
 
           Enter the item quantity
               </Form.Text> */}
-        <Form.Control ref={quantityRef} type="text" placeholder="Enter Quantity" />
-        </ThemeProvider>{' '}        
-      
+          <Form.Control ref={quantityRef} type="text" placeholder="Enter Quantity" />
+        </ThemeProvider>{' '}
+
       </Form.Group>
       <ThemeProvider prefixes={{ btn: 'my-btn' }}>
-      <Button onClick={handleSubmit} variant="flat" type="button">Add to list</Button>
+        <Button onClick={handleSubmit} variant="flat" type="button">Add to list</Button>
       </ThemeProvider>{' '}
     </Form>
   )

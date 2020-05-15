@@ -2,6 +2,8 @@ const router = require("express").Router();
 const listController = require("../../controllers/listController");
 
 // Matches with "/api/list"
+router.route("/")
+  .get(listController.findAll)
 
 router.route('/:listname')
   .post(listController.create)
@@ -13,7 +15,7 @@ router
   // .post(listController.create)
   .put(listController.findOneAndUpdate)
 
-  router
+router
   .route("/:codename/:id")
   .put(listController.remove);
 

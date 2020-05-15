@@ -10,6 +10,11 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  findAll: function(req, res) {
+    db.shopalotDB.find(req.query)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 
   findOne: function (req, res) {
     console.log("This is req.params -->", req.params)

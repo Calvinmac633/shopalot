@@ -7,7 +7,8 @@ import {
     ADD_FAVORITE,
     UPDATE_FAVORITES,
     REMOVE_FAVORITE,
-    LOADING
+    LOADING,
+    UPDATE_ALL_LISTS
 } from "./actions";
 
 
@@ -31,11 +32,41 @@ const reducer = (state, action) => {
                 loading: false
             };
 
+            case UPDATE_ALL_LISTS:
+                return {
+                    ...state,
+                    lists: [...action.lists],
+                    loading: false
+                }
+
         case ADD_LIST:
             return {
                 ...state,
                 lists: [action.list, ...state.lists],
                 loading: false
+            };
+
+        case ADD_FAVORITE:
+            return {
+                ...state,
+                //THIS IS CAUSING THE NON ITERABLE ERROR
+                favorites: [action.list, ...state.favorites],
+                loading: false
+            };
+
+        case UPDATE_FAVORITES:
+            return {
+                ...state,
+                favorites: [...state.favorites],
+                loading: false
+            };
+
+        case REMOVE_FAVORITE:
+            return {
+                ...state,
+                favorites: state.favorites.filter((list) => {
+                    return list._id !== action._id;
+                })
             };
 
         // case REMOVE_LIST_ITEM:
@@ -71,11 +102,12 @@ const reducer = (state, action) => {
 
 const StoreProvider = ({ value = [], ...props }) => {
     const [state, dispatch] = useReducer(reducer, {
-        //   lists: [], // might not need this?
+        lists: [], // might not need this?
         currentList: {
             _id: 0,
             codename: "",
             listname: "",
+            favorite: false,
             items: [
                 {
                     // id: 0, --> ideally want to add this in
@@ -84,9 +116,9 @@ const StoreProvider = ({ value = [], ...props }) => {
                     quantity: 0,
                     purchased: false
                 }
-            ]
+            ],
         },
-        //   favorites: [],
+        favorites: [],
         loading: false
     });
 

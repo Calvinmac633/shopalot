@@ -12,7 +12,8 @@ const listSchema = new Schema({
             quantity: String,
             purchased: Boolean
         }
-    ]
+    ],
+    favorite: Boolean,
     //reference to User?    
 });
 

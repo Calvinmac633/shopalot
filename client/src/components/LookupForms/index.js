@@ -7,7 +7,7 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 import AppBar from "../AppBar";
 import "./style.css"
 import API from '../../utils/API';
-import { REMOVE_LIST, UPDATE_LISTS, LOADING, SET_CURRENT_LIST, ADD_LIST } from "../../utils/actions"
+import { REMOVE_LIST, UPDATE_LISTS, LOADING, SET_CURRENT_LIST, ADD_LIST, UPDATE_FAVORITES } from "../../utils/actions"
 import { useStoreContext } from "../../utils/GlobalState";
 // import { useParams } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
@@ -22,9 +22,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Form } from "react-bootstrap";
+import FavoritesList from "../FavoritesList"
 
 const useStyles = makeStyles((theme) => ({
 
+  root: {
+    margin: ".5rem",
+    // height: "100px"
+    backgroundColor: "rgba(255, 255, 255, 0.796)",
+    padding: 0,
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -34,15 +41,19 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "#683fb5"
+    backgroundColor: "#2929FF80"
   },
   form: {
-    width: '80%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-    color: "#683fb5"
+    width: '100%', // Fix IE 11 issue.
+    // marginTop: theme.spacing(1),
+    color: "#2929FF80",
+    margin: 0,
+
   },
   display: {
     display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
     marginBottom: "200px",
   },
 
@@ -50,6 +61,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: "blue",
     fontSize: "1.0rem"
+  },
+
+  button: {
+    padding: 0,
   }
 }));
 
@@ -60,6 +75,22 @@ export default function LookupForms() {
   const { listname } = useParams();
   const [state, dispatch] = useStoreContext();
   const bull = <span className={classes.bullet}>•</span>;
+
+  const getFavorites = () => {
+    dispatch({ type: LOADING });
+    dispatch({ type: UPDATE_FAVORITES });
+  };
+
+  // const removeFromFavorites = id => {
+  //   dispatch({
+  //     type: REMOVE_FAVORITE,
+  //     _id: id
+  //   });
+  // };
+
+  useEffect(() => {
+    getFavorites();
+  }, []);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -89,6 +120,7 @@ export default function LookupForms() {
 
       <div className={classes.display}>
         <Container component="main" maxWidth="xs">
+          {console.log("This is state in the returnnn",state)}
           <CssBaseline />
           <Card className={classes.root} elevation={6}>
             <CardContent>
@@ -98,9 +130,8 @@ export default function LookupForms() {
 
               <br></br>
 
-              <Form.Control style={{ fontSize: '1rem', fontFamily: 'Open Sans' }}
+              <Form.Control className={classes.form} style={{ fontSize: '1rem', fontFamily: 'Open Sans' }}
                 ref={listNameRef}
-                className={classes.root}
                 variant="outlined"
                 margin="normal"
                 required
@@ -118,6 +149,7 @@ export default function LookupForms() {
                   type="submit"
                   size="small"
                   required
+                  className={classes.button}
                 >
                   let's create
                 </Button>
@@ -143,8 +175,8 @@ export default function LookupForms() {
               <br></br>
 
               <Form.Control style={{ fontSize: '1rem', fontFamily: 'Open Sans' }}
+                className={classes.form}
                 ref={codeNameRef}
-                className={classes.root}
                 variant="outlined"
                 margin="normal"
                 required
@@ -169,6 +201,8 @@ export default function LookupForms() {
             </CardActions>
 
           </Card>
+          <FavoritesList />
+
         </Container>
       </div>
     </div>

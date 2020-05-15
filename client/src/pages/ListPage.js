@@ -1,6 +1,6 @@
 import "./ListPage.css"
 import { useStoreContext } from "../utils/GlobalState";
-import { REMOVE_LIST_ITEM, UPDATE_LISTS, LOADING, SET_CURRENT_LIST, ADD_LIST } from "../utils/actions"
+import { REMOVE_LIST_ITEM, ADD_FAVORITE, UPDATE_LISTS, LOADING, SET_CURRENT_LIST, ADD_LIST } from "../utils/actions"
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Form, Button, Table, ThemeProvider } from 'react-bootstrap';
@@ -32,6 +32,15 @@ export function ListPage() {
             })
             .catch(err => console.log(err));
     };
+
+    const addFavorite = (e) => {
+        e.preventDefault();
+        console.log("THIS IS STATE.CURRENTLIST FROM fave BUTTONE",state)
+        dispatch({
+          type: ADD_FAVORITE,
+          list: state.currentList
+        });
+      };
 
 
     const getList = (codename) => {
@@ -81,7 +90,7 @@ export function ListPage() {
                         <br></br> */}
                         <CreateListForm />
                         <div>
-                            
+                            <button onClick={addFavorite}>Save list to favorites!</button>
                         </div>
                         {console.log("This is state -->", state)}
                         <ThemeProvider prefixes={{ table: 'my-table' }}>

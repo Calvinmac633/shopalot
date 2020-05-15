@@ -52,7 +52,7 @@ export default function ButtonAppBar(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <a className={classes.logo} style={{ color: 'white' }} href="/">Check it Out</a>
+            <a className={classes.logo} style={{ color: 'white' }} href="/home">Check it Out</a>
           </Typography>
           {props.children}
           <Button className="NavButton" color="inherit"><a style={{ color: "white", fontSize: '1rem', fontFamily: "Roboto" }} href={props.link1}>{props.text1}</a></Button>       

@@ -26,7 +26,7 @@ const GroceryDB = require("./models/index")
 // Define API routes here
 app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/checkitout");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/shopalot");
 
 // Send every other request to the React app
 // Define any API routes before this runs

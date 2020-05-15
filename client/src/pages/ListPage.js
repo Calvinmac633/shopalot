@@ -35,12 +35,18 @@ export function ListPage() {
 
     const addFavorite = (e) => {
         e.preventDefault();
-        console.log("THIS IS STATE.CURRENTLIST FROM fave BUTTONE",state)
-        dispatch({
-          type: ADD_FAVORITE,
-          list: state.currentList
-        });
-      };
+        console.log("THIS IS STATE.CURRENTLIST FROM fave BUTTONE", state)
+        API.addFavorite(codename, {
+            favorite: true,
+        }).then(result => {
+            console.log("This is the API result from addFavorite", result)
+            dispatch({
+                type: UPDATE_LISTS,
+                list: state.currentList
+            });
+        })
+
+    };
 
 
     const getList = (codename) => {
@@ -77,7 +83,7 @@ export function ListPage() {
     
                 `}
             </style>
-            <AppBar link1="/" text1={"Your codename is: "+codename}>
+            <AppBar link1="/" text1={"Your codename is: " + codename}>
             </AppBar>
             {/* <h1>Your codename is:</h1>
             <h2>{codename}</h2> */}
@@ -116,7 +122,7 @@ export function ListPage() {
                                             <td>{count++}</td>
                                             <td>{item.itemName}</td>
                                             <td>{item.quantity}</td>
-                                            <td><Button style={{margin: "1rem"}}onClick={() => {
+                                            <td><Button style={{ margin: "1rem" }} onClick={() => {
                                                 removeListItem(item._id)
                                             }}>
                                                 <FontAwesomeIcon icon={faCheck}>

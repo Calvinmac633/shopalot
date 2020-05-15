@@ -11,6 +11,8 @@ export function Home() {
 
     const [state, dispatch] = useStoreContext();
 
+    
+
     const getAllLists = () => {
         dispatch({ type: LOADING });
         API.getAllLists()

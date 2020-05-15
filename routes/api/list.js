@@ -4,18 +4,20 @@ const listController = require("../../controllers/listController");
 // Matches with "/api/list"
 router.route("/")
   .get(listController.findAll)
-
-router.route('/:listname')
+  
+  router.route('/:listname')
   .post(listController.create)
-
-router
+  
+  router
   .route("/:codename")
   .get(listController.findOne)
-
+  
   // .post(listController.create)
   .put(listController.findOneAndUpdate)
-
-router
+  //need to use this put function to also update Favoritessss
+  // .favePut(listController.findOneAndUpdateFave)
+  
+  router
   .route("/:codename/:id")
   .put(listController.remove);
 

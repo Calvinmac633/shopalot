@@ -18,8 +18,8 @@ export default {
     return axios.put("/api/list/" + codename, listData)
   },
   addFavorite: function( codename, listData) {
-    console.log(codename)
-    return axios.put("/api/list" + codename, listData)
+    console.log(listData)
+    return axios.put("/api/list/" + codename, listData)
   },
   deleteList: function(codename, id) {
     console.log("This is codename",codename)

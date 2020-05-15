@@ -1,0 +1,17 @@
+li, body {
+    color: white,
+}
+
+.cmon {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.cmonpls {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+}

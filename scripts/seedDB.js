@@ -5,7 +5,7 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/checkitout"
+  "mongodb://localhost/shopalot"
   //put in our DB
 );
 
@@ -15,6 +15,7 @@ const seeds = [
     
     codename: "turtle-apple",
     listname: "Food List",
+    favorite: false,
     items: [{
       _id: 0,
       itemName: "Cereal",
@@ -32,14 +33,15 @@ const seeds = [
     
     codename: "dog-peach",
     listname: "Grocery List",
+    favorite: true,
     items: []
   }
 
 
 ]
-db.GroceryDB
+db.shopalotDB
   .deleteMany({})
-  .then(() => db.GroceryDB.collection.insertMany(seeds))
+  .then(() => db.shopalotDB.collection.insertMany(seeds))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

@@ -37,11 +37,11 @@ module.exports = {
       db.shopalotDB
         .findOneAndUpdate(
           { codename: req.params.codename },
-          req.body.favorite,
+          {favorite: req.body.favorite},
           { new: true }
         )
         .then(dbModel => {
-          console.log(dbModel)
+          console.log("this is db model first (fave) option",dbModel)
           res.json(dbModel)
         })
         .catch(err => {
@@ -66,7 +66,7 @@ module.exports = {
 
         )
         .then(dbModel => {
-          console.log(dbModel)
+          console.log("This is second option dbModel",dbModel)
           res.json(dbModel)
         })
         .catch(err => {

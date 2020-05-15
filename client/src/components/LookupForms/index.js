@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-evenly",
-    marginBottom: "200px",
+    // marginBottom: "200px",
   },
 
 

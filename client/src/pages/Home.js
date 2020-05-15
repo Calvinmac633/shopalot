@@ -5,19 +5,20 @@ import API from "../utils/API"
 import LookupForms from "../components/LookupForms";
 import AppBar from "../components/AppBar"
 import { useStoreContext } from "../utils/GlobalState";
+import "./homeStyle.css"
 
 
 export function Home() {
 
     const [state, dispatch] = useStoreContext();
 
-    
+
 
     const getAllLists = () => {
         dispatch({ type: LOADING });
         API.getAllLists()
             .then(results => {
-                console.log("this is APIresultinHome.JSS",results)
+                console.log("this is APIresultinHome.JSS", results)
                 dispatch({
                     type: UPDATE_ALL_LISTS,
                     lists: results.data,
@@ -39,8 +40,28 @@ export function Home() {
             <AppBar />
             <br></br>
             <LookupForms />
-            {state ? (console.log("this is state inhome.jsssssssss",state)) : null}
-        </div>
+            {state ? (console.log("this is state inhome.jsssssssss", state.lists)) : null}
+            <div className="cmonpls">
+                These are your Favorites!!
+                
+            </div>
+            <ul>
+                {state.lists.map(list => {
+                    if (!list.favorite) {
+                        return null
+                    } else {
+                        return <li className="cmon">{list.codename}</li>
+                    }
+                }
+                    // console.log("this is list itemmm", list)
+
+
+                )}
+            </ul>
+            
+
+
+        </div >
 
     );
 }

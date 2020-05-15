@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const listSchema = new Schema({
     codename: String,
     listname: String,
+    favorite: Boolean,
     items: [
         {
             _id: { type: Schema.ObjectId, auto: true }, // --> THIS IS NOT WORKING
@@ -13,7 +14,6 @@ const listSchema = new Schema({
             purchased: Boolean
         }
     ],
-    favorite: Boolean,
     //reference to User?    
 });
 

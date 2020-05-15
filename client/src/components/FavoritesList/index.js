@@ -30,11 +30,11 @@ const FavoritesList = () => {
       {/* Work on generating favorites list from an API call, somehow involving state and reducer */}
       {/* ------------------------------------------------------------------------- */}
 
-      {state.favorites.length ?
+      {/* {state.favorites.length ?
         console.log("THIS IS FROM FAVORITES LIST (conditional)", state.favorites)
           (<p>its workingggg</p>) :
         <p>THIS AINT WERKIN</p>}
-      {console.log("THIS IS FROM FAVORITES LIST", state.favorites)}
+      {console.log("THIS IS FROM FAVORITES LIST", state.favorites)} */}
     </div>
   );
 };

@@ -59,13 +59,21 @@ const useStyles = makeStyles((theme) => ({
 
 
   title: {
-    color: "blue",
-    fontSize: "1.0rem"
+    color: "rgba(49, 30, 111)",
+    fontSize: "1.0rem",
+    margin: 0,
   },
 
   button: {
     padding: 0,
-  }
+  },
+  cardTitles: {
+    paddingLeft: ".5rem",
+    paddingTop: "0.25rem",
+    paddingRight: ".5rem",
+    paddingBottom: "0rem",
+    margin: 0,
+}
 }));
 
 export default function LookupForms() {
@@ -74,7 +82,7 @@ export default function LookupForms() {
   const codeNameRef = useRef();
   const { listname } = useParams();
   const [state, dispatch] = useStoreContext();
-  const bull = <span className={classes.bullet}>•</span>;
+  // const bull = <span className={classes.bullet}>•</span>;
 
   const getFavorites = () => {
     dispatch({ type: LOADING });
@@ -123,7 +131,7 @@ export default function LookupForms() {
           {console.log("This is state in the returnnn",state)}
           <CssBaseline />
           <Card className={classes.root} elevation={6}>
-            <CardContent>
+            <CardContent className={classes.cardTitles}>
               <Typography className={classes.title} color="textSecondary" gutterBottom>
                 create new list
               </Typography>
@@ -167,7 +175,7 @@ export default function LookupForms() {
 
 
           <Card className={classes.root} elevation={6}>
-            <CardContent>
+            <CardContent className={classes.cardTitles}>
               <Typography className={classes.title} color="textSecondary" gutterBottom>
                 search existing list
               </Typography>

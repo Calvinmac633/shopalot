@@ -48,8 +48,25 @@ module.exports = {
           console.log(err)
           res.status(422).json(err)
         });
-    } else {
+    } else if (req.body.favorite === false) {
       console.log("second option")
+      db.shopalotDB
+        .findOneAndUpdate(
+          { codename: req.params.codename },
+          {favorite: req.body.favorite},
+          { new: true }
+        )
+        .then(dbModel => {
+          console.log("this is db model first (fave) option",dbModel)
+          res.json(dbModel)
+        })
+        .catch(err => {
+          console.log(err)
+          res.status(422).json(err)
+        });
+    }
+    else if (req.body.favorite === undefined) {
+      console.log("third option")
       db.shopalotDB
         .findOneAndUpdate(
           { codename: req.params.codename },

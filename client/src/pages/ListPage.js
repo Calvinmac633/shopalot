@@ -48,6 +48,20 @@ export function ListPage() {
 
     };
 
+    const deleteFavorite = (e) => {
+        e.preventDefault();
+        API.deleteFavorite(codename, {
+            favorite: false,
+        }).then(result => {
+            console.log("This is the API result from deleteFavorite", result)
+            dispatch({
+                type: UPDATE_LISTS,
+                list: state.currentList
+            });
+        })
+        
+    }
+
 
     const getList = (codename) => {
         dispatch({ type: LOADING });
@@ -83,7 +97,8 @@ export function ListPage() {
     
                 `}
             </style>
-            <AppBar link1="/" text1={"Your codename is: " + codename}>
+            {/* <AppBar link1="/" text1={"Your codename is: " + codename}> */}
+            <AppBar link1="/">
             </AppBar>
             {/* <h1>Your codename is:</h1>
             <h2>{codename}</h2> */}
@@ -95,8 +110,9 @@ export function ListPage() {
                         <h2>{codename}</h2>
                         <br></br> */}
                         <CreateListForm />
-                        <div>
-                            <button onClick={addFavorite}>Save list to favorites!</button>
+                        <div className="faveButtonContainer">
+                            <button className="saveFaveButton" onClick={addFavorite}>Save to favorites</button>
+                            <button className="deleteFaveButton" onClick={deleteFavorite}>Delete from favorites</button>
                         </div>
                         {console.log("This is state -->", state)}
                         <ThemeProvider prefixes={{ table: 'my-table' }}>

@@ -147,6 +147,7 @@ export default function LookupForms() {
                 label="Enter Code Name"
                 name="Code Name"
                 autoFocus
+                placeholder="John Doe's Grocery List"
               />
             </CardContent>
             <CardActions>
@@ -191,6 +192,7 @@ export default function LookupForms() {
                 label="Enter Code Name"
                 name="Code Name"
                 autoFocus
+                placeholder="Enter Codename"
               />
             </CardContent>
             <CardActions>

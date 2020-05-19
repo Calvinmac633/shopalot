@@ -17,8 +17,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     textAlign: "center",
     fontSize: '2rem',
-    fontFamily: 'Londrina Shadow',
-    marginLeft: "100px"
   },
   appBar: {
     height: "75px",
@@ -30,14 +28,16 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     [theme.breakpoints.down('sm')]: {
-      fontSize: "3rem", 
+      fontSize: "2.75rem", 
       display: "flex",
       justifyContent: "center",
+      textAlign: "center",
     },
     [theme.breakpoints.down('xs')]: {
-      fontSize: "2rem", 
+      fontSize: "1.75rem", 
       display: "flex",
       justifyContent: "center",
+      textAlign: "center",
     }
 
   }
@@ -50,13 +50,13 @@ export default function ButtonAppBar(props) {
   return (
     <div >
       <AppBar position="static">
-        <Toolbar>
+        {/* <Toolbar> */}
           <Typography variant="h6" className={classes.title}>
             <a className={classes.logo} style={{ color: 'white' }} href="/home">Check it Out</a>
           </Typography>
-          {props.children}
-          <Button className="NavButton" color="inherit"><a style={{ color: "white", fontSize: '1rem', fontFamily: "Roboto" }} href={props.link1}>{props.text1}</a></Button>       
-        </Toolbar>
+          {/* {props.children}
+          <Button className="NavButton" color="inherit"><a style={{ color: "white", fontSize: '1rem', fontFamily: "Roboto" }} href={props.link1}>{props.text1}</a></Button>        */}
+        {/* </Toolbar> */}
       </AppBar>
     </div>
 

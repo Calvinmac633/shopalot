@@ -59,9 +59,10 @@ const useStyles = makeStyles((theme) => ({
 
 
   title: {
-    color: "rgba(49, 30, 111)",
+    color: "rgb(15, 37, 117)",
     fontSize: "1.0rem",
     margin: 0,
+    marginBottom: ".25rem",
   },
 
   button: {
@@ -136,8 +137,6 @@ export default function LookupForms() {
                 create new list
               </Typography>
 
-              <br></br>
-
               <Form.Control className={classes.form} style={{ fontSize: '1rem', fontFamily: 'Open Sans' }}
                 ref={listNameRef}
                 variant="outlined"
@@ -180,7 +179,6 @@ export default function LookupForms() {
                 search existing list
               </Typography>
 
-              <br></br>
 
               <Form.Control style={{ fontSize: '1rem', fontFamily: 'Open Sans' }}
                 className={classes.form}

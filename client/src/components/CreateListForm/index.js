@@ -68,14 +68,13 @@ function CreateListForm() {
       width: 200;
     margin: auto;
     color: #FFFFFF;
-    font-size:30px;
-    font-Family: londrina Shadow;
+    font-size: 1.5rem;
     background-color: #683fb5; 
     border: 3px solid #683fb5;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-Bottom: 30px;
+    margin-Bottom: 1rem;
     }
     .form-control{
       width:200;

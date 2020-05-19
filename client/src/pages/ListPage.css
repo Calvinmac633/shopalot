@@ -27,7 +27,7 @@ td{
     font-Size: 21px;
     background-color: white;
     border: 2px solid #f3c623;
-    padding: 0px;
+    padding: 0;
     
 }
 @media (max-width: 1200px ) {
@@ -92,4 +92,12 @@ h2{
   display: inline-block;
   font-size: 16px;
   padding: .5rem;
+}
+.codenameHead {
+    color: white;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.306);
+    margin-left: .5rem;
+    margin-right: .5rem;
+    font-family: Roboto;
 }

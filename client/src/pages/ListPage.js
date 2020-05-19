@@ -59,7 +59,7 @@ export function ListPage() {
                 list: state.currentList
             });
         })
-        
+
     }
 
 
@@ -91,8 +91,9 @@ export function ListPage() {
                 {`
                     .my-table {
                         width: 100%;
-                        
-
+                    }
+                    .my-head {
+                        color: white;
                     }
     
                 `}
@@ -114,6 +115,10 @@ export function ListPage() {
                             <button className="saveFaveButton" onClick={addFavorite}>Save to favorites</button>
                             <button className="deleteFaveButton" onClick={deleteFavorite}>Delete from favorites</button>
                         </div>
+                            <p className="codenameHead">
+                                {"Your codename is: " + codename}
+                            </p>
+
                         {console.log("This is state -->", state)}
                         <ThemeProvider prefixes={{ table: 'my-table' }}>
                             <Table bordered responsive size="sm">

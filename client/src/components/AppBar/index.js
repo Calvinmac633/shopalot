@@ -4,6 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,12 +34,14 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       justifyContent: "center",
       textAlign: "center",
+      marginLeft: "4rem",
     },
     [theme.breakpoints.down('xs')]: {
       fontSize: "1.75rem", 
       display: "flex",
       justifyContent: "center",
       textAlign: "center",
+      marginLeft: "4rem",
     }
 
   }
@@ -50,13 +54,14 @@ export default function ButtonAppBar(props) {
   return (
     <div >
       <AppBar position="static">
-        {/* <Toolbar> */}
+        <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <a className={classes.logo} style={{ color: 'white' }} href="/home">Check it Out</a>
           </Typography>
-          {/* {props.children}
-          <Button className="NavButton" color="inherit"><a style={{ color: "white", fontSize: '1rem', fontFamily: "Roboto" }} href={props.link1}>{props.text1}</a></Button>        */}
-        {/* </Toolbar> */}
+          {props.children}
+          <Button className="NavButton" color="inherit"><a style={{color: "white", marginTop: ".2rem"}}href="/home"><FontAwesomeIcon style={{ height: "2rem", width: "2rem" }} icon={props.text1} >></FontAwesomeIcon></a></Button>       
+          {/* <FontAwesomeIcon style={{ height: ".5rem", width: ".5rem" }} icon={faCheck} href={props.link1}>{props.text1}></FontAwesomeIcon>*/}
+        </Toolbar>
       </AppBar>
     </div>
 

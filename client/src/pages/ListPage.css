@@ -30,10 +30,21 @@ td{
     padding: 0;
     
 }
+.countCell {
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
 @media (max-width: 1200px ) {
     th{
-        font-Size: 25px;
+        font-Size: .85rem;
         
+    }
+    td {
+        font-size: .75rem;
+    }
+    .countCell {
+        padding-right: .5rem;
+        padding-left: .5rem;
     }
   }
 .table-bordered td{
@@ -93,13 +104,19 @@ h2{
   font-size: 16px;
   padding: .5rem;
 }
+.deleteFaveButton:hover:active {
+    background-color: #c13127e7;; /* Red */
+}
+.saveFaveButton:hover:active {
+    background-color: rgba(39, 117, 42, 0.925); /* Green */
+}
 .codenameHead {
     color: rgb(32, 66, 154);
     text-align: center;
     background-color: rgba(255, 255, 255, 0.782);
-    margin-left: .5rem;
-    margin-right: .5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     font-family: Roboto;
     font-weight: 400;
-    font-size: 1.1rem;
+    font-size: .8rem;
 }

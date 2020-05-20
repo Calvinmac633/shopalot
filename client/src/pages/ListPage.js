@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import AppBar from "../components/AppBar"
 import CreateListForm from "../components/CreateListForm"
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 // import codename from ZOEYTHING
 export function ListPage() {
@@ -91,6 +92,7 @@ export function ListPage() {
                 {`
                     .my-table {
                         width: 100%;
+                        margin-right: 12rem;
                     }
                     .my-head {
                         color: white;
@@ -99,7 +101,7 @@ export function ListPage() {
                 `}
             </style>
             {/* <AppBar link1="/" text1={"Your codename is: " + codename}> */}
-            <AppBar link1="/">
+            <AppBar link1="/" text1={faHome}>
             </AppBar>
             {/* <h1>Your codename is:</h1>
             <h2>{codename}</h2> */}
@@ -111,21 +113,25 @@ export function ListPage() {
                         <h2>{codename}</h2>
                         <br></br> */}
                         <CreateListForm />
-                        <div className="faveButtonContainer">
+                        {/* <div className="faveButtonContainer">
                             <button className="saveFaveButton" onClick={addFavorite}>Save to favorites</button>
                             <button className="deleteFaveButton" onClick={deleteFavorite}>Delete from favorites</button>
-                        </div>
-                            <p className="codenameHead">
-                                {"Your codename is: " + codename}
-                            </p>
+                        </div> */}
+                        <p className="codenameHead">
+                            {"Your codename is: " + codename}
+                        </p>
 
                         {console.log("This is state -->", state)}
                         <ThemeProvider prefixes={{ table: 'my-table' }}>
-                            <Table bordered responsive size="sm">
+                            <div className="tableContainer">
+                            <Table 
+                            bordered 
+                            responsive 
+                            size="sm">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Item
+                                        <th>Item Name
                                     </th>
                                         <th>Quantity</th>
                                         <th>Purchased?</th>
@@ -140,13 +146,13 @@ export function ListPage() {
                                     {console.log("this is state ----> ", state)}
                                     {state.currentList.items.map(item =>
                                         <tr>
-                                            <td>{count++}</td>
+                                            <td className="countCell">{count++}</td>
                                             <td>{item.itemName}</td>
                                             <td>{item.quantity}</td>
-                                            <td><Button style={{ margin: "1rem" }} onClick={() => {
+                                            <td><Button style={{ display: "flex", justifyContent: "center", margin: "auto", marginTop: ".15rem", marginBottom: ".15rem", height: "1.5rem", width: "1.5rem", alignItems: "center" }} onClick={() => {
                                                 removeListItem(item._id)
                                             }}>
-                                                <FontAwesomeIcon icon={faCheck}>
+                                                <FontAwesomeIcon style={{ height: ".5rem", width: ".5rem" }} icon={faCheck}>
                                                     {item.purchased}</FontAwesomeIcon>
                                             </Button>
                                             </td>
@@ -167,7 +173,7 @@ export function ListPage() {
                                             <td>{count++}</td>
                                             <td>{item.itemName}</td>
                                             <td>{item.quantity}</td>
-                                            <td><Button onClick={() => {
+                                            <td><Button className="purchasedButton" onClick={() => {
                                                 removeListItem(item._id)
                                             }}>
                                                 <FontAwesomeIcon icon={faCheck}>
@@ -186,6 +192,12 @@ export function ListPage() {
 
 
                             </Table>
+                            </div>
+                            <br></br>
+                            <div className="faveButtonContainer">
+                                <button className="saveFaveButton" onClick={addFavorite}>Save to favorites</button>
+                                <button className="deleteFaveButton" onClick={deleteFavorite}>Delete from favorites</button>
+                            </div>
                         </ThemeProvider>{' '}
 
                     </div>

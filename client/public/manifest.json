@@ -3,17 +3,17 @@
   "name": "React Shopalot App",
   "icons": [
     {
-      "src": "shopping.ico",
+      "src": "shopping-152.jpg",
       "sizes": "152x152",
       "type": "image/png"
     },
     {
-      "src": "shopping.ico",
+      "src": "shopping-192.jpg",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "shopping.ico",
+      "src": "shopping-512.jpg",
       "sizes": "512x512",
       "type": "image/png"
     }

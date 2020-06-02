@@ -9,3 +9,6 @@ Make shopping for family and friends easier! Create new, or join existing shoppi
 ## Authors and Acknowledgment
 Calvin Macintosh, Zoey Frakes, Hannali Patidar
 
+## Links
+* [Deployed Application](https://shopalot-checkitout.herokuapp.com/)
+* [Calvin's Repo](https://github.com/Calvinmac633)

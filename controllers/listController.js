@@ -30,14 +30,14 @@ module.exports = {
 
   findOneAndUpdate: function (req, res) {
     console.log("This is req.params -->", req.params)
-    console.log("This is req.body.favee -->", req.body.favorite)
+    console.log("This is req.body.favee -->", req.body.favorites)
 
-    if (req.body.favorite) {
+    if (req.body.favorites) {
       console.log("first option")
       db.shopalotDB
         .findOneAndUpdate(
           { codename: req.params.codename },
-          {favorite: req.body.favorite},
+          {favorites: req.body.favorites},
           { new: true }
         )
         .then(dbModel => {
@@ -48,12 +48,12 @@ module.exports = {
           console.log(err)
           res.status(422).json(err)
         });
-    } else if (req.body.favorite === false) {
+    } else if (req.body.favorites === false) {
       console.log("second option")
       db.shopalotDB
         .findOneAndUpdate(
           { codename: req.params.codename },
-          {favorite: req.body.favorite},
+          {favorites: req.body.favorites},
           { new: true }
         )
         .then(dbModel => {
@@ -65,7 +65,7 @@ module.exports = {
           res.status(422).json(err)
         });
     }
-    else if (req.body.favorite === undefined) {
+    else if (req.body.favorites === undefined) {
       console.log("third option")
       db.shopalotDB
         .findOneAndUpdate(

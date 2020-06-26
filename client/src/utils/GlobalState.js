@@ -8,8 +8,10 @@ import {
     UPDATE_FAVORITES,
     REMOVE_FAVORITE,
     LOADING,
-    UPDATE_ALL_LISTS
+    UPDATE_ALL_LISTS,
+    // LOGOUT
 } from "./actions";
+import fire from "../config/fire"
 
 
 const StoreContext = createContext();
@@ -17,6 +19,11 @@ const { Provider } = StoreContext;
 
 const reducer = (state, action) => {
     switch (action.type) {
+        // case LOGOUT:
+        //     return {
+        //         ...state,
+        //         logout: action.logout,
+        //     }
         case SET_CURRENT_LIST:
             return {
                 ...state,
@@ -46,28 +53,28 @@ const reducer = (state, action) => {
                 loading: false
             };
 
-        case ADD_FAVORITE:
-            return {
-                ...state,
-                //THIS IS CAUSING THE NON ITERABLE ERROR
-                favorites: [action.list, ...state.favorites],
-                loading: false
-            };
+        // case ADD_FAVORITE:
+        //     return {
+        //         ...state,
+        //         //THIS IS CAUSING THE NON ITERABLE ERROR
+        //         favorites: [action.list, ...state.favorites],
+        //         loading: false
+        //     };
 
-        case UPDATE_FAVORITES:
-            return {
-                ...state,
-                favorites: [...state.favorites],
-                loading: false
-            };
+        // case UPDATE_FAVORITES:
+        //     return {
+        //         ...state,
+        //         favorites: [...state.favorites],
+        //         loading: false
+        //     };
 
-        case REMOVE_FAVORITE:
-            return {
-                ...state,
-                favorites: state.favorites.filter((list) => {
-                    return list._id !== action._id;
-                })
-            };
+        // case REMOVE_FAVORITE:
+        //     return {
+        //         ...state,
+        //         favorites: state.favorites.filter((list) => {
+        //             return list._id !== action._id;
+        //         })
+        //     };
 
         // case REMOVE_LIST_ITEM:
         //     return {
@@ -100,6 +107,10 @@ const reducer = (state, action) => {
     }
 };
 
+// function logout() {
+//     fire.auth.signOut();
+// }
+
 const StoreProvider = ({ value = [], ...props }) => {
     const [state, dispatch] = useReducer(reducer, {
         lists: [], // might not need this?
@@ -118,8 +129,9 @@ const StoreProvider = ({ value = [], ...props }) => {
                 }
             ],
         },
-        favorites: [],
-        loading: false
+        // favorites: [],
+        loading: false,
+        // logout: this.logout().bind(this)
     });
 
     return <Provider value={[state, dispatch]} {...props} />;

@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const listSchema = new Schema({
     codename: String,
     listname: String,
-    favorite: Boolean,
+    favorites: Array,
     items: [
         {
             _id: { type: Schema.ObjectId, auto: true }, // --> THIS IS NOT WORKING

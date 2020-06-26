@@ -1,13 +1,10 @@
 import { useStoreContext } from "../../utils/GlobalState";
-import { REMOVE_LIST, UPDATE_LISTS, LOADING, SET_CURRENT_LIST, ADD_LIST } from "../../utils/actions"
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useParams } from "react-router-dom";
+import { UPDATE_LISTS, LOADING } from "../../utils/actions"
+import React, { useRef } from "react";
+import { useParams } from "react-router-dom";
 import API from "../../utils/API"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
-import AppBar from "../AppBar"
 import "./CreateListForm.css"
-import { Form, Button, Table, ThemeProvider } from 'react-bootstrap';
+import { Form, Button, ThemeProvider } from 'react-bootstrap';
 
 // import codename from ZOEYTHING
 // const codename = "Turtle-Apple";

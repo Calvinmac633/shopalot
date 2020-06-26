@@ -18,6 +18,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { Link, useParams } from "react-router-dom";
+import fire from "../config/fire";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -80,20 +81,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export function Home() {
+export function Home(props) {
 
     const [state, dispatch] = useStoreContext();
 
-
-
-
     const classes = useStyles();
+
 
     const getAllLists = () => {
         dispatch({ type: LOADING });
         API.getAllLists()
             .then(results => {
-                console.log("this is APIresultinHome.JSS", results)
                 dispatch({
                     type: UPDATE_ALL_LISTS,
                     lists: results.data,
@@ -105,16 +103,20 @@ export function Home() {
 
     const faveClick = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
         API.getList(e.target.value
         )
             .then(res => {
-                console.log("This is handleSubmitCodename console log --->", res)
                 window.location.href = "list/" + res.data.codename
             }
             )
 
     }
+
+    // const logout = (e) => {
+    //     e.preventDefault();
+    //     console.log(e.target.value);
+    //     fire.auth.signOut()
+    // }
 
     // const {} = useParams()
     useEffect(() => {
@@ -123,15 +125,16 @@ export function Home() {
 
 
 
+
     return (
 
         <div>
             <AppBar />
+            {/* <button onClick={logout}>Log Out</button> */}
             <br></br>
+            <h5 id="user">You are signed in as {props.user.email} wooo!</h5>
             <LookupForms />
-            {state ? (console.log("this is state inhome.jsssssssss", state.lists)) : null}
             <Container component="main" maxWidth="xs">
-                {console.log("This is state in the returnnn", state)}
                 <CssBaseline />
                 <Card className={classes.root} elevation={6}>
                     <CardContent className={classes.cardTitles}>
@@ -140,39 +143,30 @@ export function Home() {
                             </Typography>
 
                     </CardContent>
-                    {console.log(state.lists)}
-                    {(state.lists.length === 0) ? <div>Create a list above and save to your favorites!</div> : 
+                    {(state.lists.length === 0) ? <div>Create a list above and save to your favorites!</div> :
                         <ul>
                             {state.lists.map(list => {
-                                if (!list.favorite) {
-                                    return null
-                                } else {
-                                    return <CardActions>
-                                        <Link href="/List">
-                                            <Button
-                                                onClick={faveClick}
-                                                type="submit"
-                                                size="small"
-                                                required
-                                                className={classes.button}
-                                                value={list.codename}
-                                            >
-                                                {list.listname}
-                                            </Button>
-                                        </Link>
-                                    </CardActions>
 
-
-
-
-
-                                    // <li className="faveList">{list.listname}</li>
+                                if (list.favorites.includes(props.user.email)) {
+                                    return (
+                                        <CardActions>
+                                            <Link href="/List">
+                                                <Button
+                                                    onClick={faveClick}
+                                                    type="submit"
+                                                    size="small"
+                                                    required
+                                                    className={classes.button}
+                                                    value={list.codename}
+                                                >
+                                                    {list.listname}
+                                                </Button>
+                                            </Link>
+                                        </CardActions>
+                                    )} else {
+                                        return null
+                                    }
                                 }
-
-                            }
-
-                                // console.log("this is list itemmm", list)
-
 
                             )}
                         </ul>

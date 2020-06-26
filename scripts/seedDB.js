@@ -15,7 +15,9 @@ const seeds = [
     
     codename: "turtle-apple",
     listname: "Food List",
-    favorite: false,
+    favorites: [
+      "bob@gmail.com"
+    ],
     items: [{
       _id: 0,
       itemName: "Cereal",
@@ -33,7 +35,9 @@ const seeds = [
     
     codename: "dog-peach",
     listname: "Grocery List",
-    favorite: true,
+    favorites: [
+      "calvinmac633@gmail.com"
+    ],
     items: []
   }
 

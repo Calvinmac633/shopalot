@@ -1,13 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 // import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import AssignmentIcon from '@material-ui/icons/Assignment';
-import AppBar from "../AppBar";
 import "./style.css"
 import API from '../../utils/API';
-import { REMOVE_LIST, UPDATE_LISTS, LOADING, SET_CURRENT_LIST, ADD_LIST, UPDATE_FAVORITES } from "../../utils/actions"
+import { LOADING, UPDATE_FAVORITES } from "../../utils/actions"
 import { useStoreContext } from "../../utils/GlobalState";
 // import { useParams } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
@@ -19,7 +15,6 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Form } from "react-bootstrap";
 import FavoritesList from "../FavoritesList"

@@ -36,11 +36,11 @@ td{
 }
 @media (max-width: 1200px ) {
     th{
-        font-Size: .85rem;
+        font-Size: 1.5rem;
         
     }
     td {
-        font-size: .75rem;
+        font-size: 1rem;
     }
     .countCell {
         padding-right: .5rem;
@@ -68,12 +68,7 @@ h1{
 
 }
 
-h2 {
-    text-align: center;
-    color: white;
-    font-weight: 400;
-    font-size: 2.5rem;
-}
+
 .faveButtonContainer{
     display: flex;
     justify-content: space-evenly;
@@ -115,4 +110,10 @@ h2 {
     font-family: Roboto;
     font-weight: 400;
     font-size: .8rem;
+}
+h2 {
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 6vw!important;
 }

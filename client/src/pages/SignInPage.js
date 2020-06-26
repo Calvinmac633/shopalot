@@ -53,14 +53,14 @@ class SignInPage extends Component {
             <div id="formContainer" className="col-md-6">
                 <form>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email Address</label>
+                        <h4 for="exampleInputEmail1">Email Address</h4>
                         <input value={this.state.email} onChange={this.handleChange} type="email" name="email"
                         className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                         placeholder="Enter email" />
-                        <small id="emailHelpp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="emailHelpp" className="form-text">We'll never share your email with anyone else.</small>
                     </div>
                     <div className="form-group">
-                        <label for="exampleInputPassword1">Password</label>
+                        <h4 for="exampleInputPassword1">Password</h4>
                         <input value={this.state.password} onChange={this.handleChange} type="password"
                         name="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                     </div>

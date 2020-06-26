@@ -152,7 +152,7 @@ export function Home(props) {
                             </Typography>
                     </CardContent>
                     {(state.lists.length === 0) ? <div>Create a list above and save to your favorites!</div> :
-                        <ul className={classes.listGroup}>
+                        <ul className="listGroup">
                             {state.lists.map(list => {
 
                                 if (list.favorites.includes(props.user.email)) {

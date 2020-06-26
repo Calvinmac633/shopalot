@@ -3,3 +3,9 @@
     justify-content: center;
     margin: 0 auto;
 }
+h4 {
+    color: white;
+}
+.form-text {
+    color: black;
+}

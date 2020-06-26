@@ -92,6 +92,9 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 currentList: {
+                    listname: state.currentList.listname,
+                    codename: state.currentList.codename,
+                    favorites: state.currentList.favorites,
                     items: state.currentList.items.filter(item => action._id !== item._id) //updated this to have brackets around items
                 },
             };

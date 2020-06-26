@@ -65,13 +65,14 @@ function CreateListForm() {
       width: 200;
     margin: auto;
     color: #FFFFFF;
-    font-size: 1rem;
-    background-color: #683fb5; 
-    border: 3px solid #683fb5;
+    font-size: 1.35rem;
+    background-color: rgb(63,81,225, 0.9); 
+    border: 3px solid rgb(63,81,225, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-Bottom: 1rem;
+    font-weight: 400;
     }
     .my-btn:active {
       background-color: #492a84e3;  
@@ -80,7 +81,7 @@ function CreateListForm() {
       width:200;
       margin: auto;
       font-Family: londrina Shadow;
-      font-size:30px;
+      font-size: 60px;
       border: 3px solid #856c8b;
   }
 
@@ -88,8 +89,8 @@ function CreateListForm() {
       width:200;
       margin: auto;
       font-Family: Open Sans;
-      font-size: .75rem;
-      border: 3px solid #683fb5;
+      font-size: 1rem;
+      border: 3px solid rgb(63,81,181);
   }
   .form-text{
     margin: auto;

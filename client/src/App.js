@@ -6,12 +6,14 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import { ListPage } from "./pages/ListPage"
-import {Home} from "./pages/Home"
+import { Home } from "./pages/Home"
 import 'font-awesome/css/font-awesome.min.css';
 import { StoreProvider } from "./utils/GlobalState";
 import SignInPage from "./pages/SignInPage"
 import fire from "./config/fire";
 import { Form, Button, Table } from 'react-bootstrap';
+import AppBar from "./components/AppBar"
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 class App extends Component {
 
@@ -40,7 +42,7 @@ class App extends Component {
     })
   }
 
-  logout(){
+  logout() {
     fire.auth().signOut()
   }
 
@@ -52,16 +54,12 @@ class App extends Component {
             {this.state.user ? (
               <Switch>
                 <Route path='/List/:codename'>
+                  <AppBar logout={this.logout} />
                   <ListPage user={this.state.user} />
-                  <div className="buttonContainer">
-                  <Button onClick={this.logout}>Log Out</Button>
-                  </div>
                 </Route>
                 <Route path='/'>
+                <AppBar logout={this.logout} />
                   <Home user={this.state.user} />
-                  <div className="buttonContainer">
-                  <Button onClick={this.logout}>Log Out</Button>
-                  </div>
                 </Route>
               </Switch>
             ) : (

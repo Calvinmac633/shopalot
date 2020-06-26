@@ -68,15 +68,11 @@ h1{
 
 }
 
-h2{
-    color: #683fb5;
-    font-family: Roboto;
-    font-Size: 25px;
-    justify-content: center;
-    align-items: center;
-    /* margin-left: 2%;     */
-    
-
+h2 {
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 2.5rem;
 }
 .faveButtonContainer{
     display: flex;

@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import AppBar from "../components/AppBar"
 import CreateListForm from "../components/CreateListForm"
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+
 
 // import codename from ZOEYTHING
 export function ListPage(props) {
@@ -113,29 +113,18 @@ export function ListPage(props) {
     
                 `}
             </style>
-            {/* <AppBar link1="/" text1={"Your codename is: " + codename}> */}
-            <AppBar link1="/" text1={faHome}>
-            </AppBar>
-            {/* <h1>Your codename is:</h1>
-            <h2>{codename}</h2> */}
-            <br></br>
+
             <main role="main">
                 <section>
                     <div class="container">
-                        {/* <h1>Your codename is:</h1>
-                        <h2>{codename}</h2>
-                        <br></br> */}
-                        <h5 id="user">You are signed in as {props.user.email}</h5>
+         
+                        <h2>"{state.currentList.listname}"</h2>
                         <CreateListForm />
-                        {/* <div className="faveButtonContainer">
-                            <button className="saveFaveButton" onClick={addFavorite}>Save to favorites</button>
-                            <button className="deleteFaveButton" onClick={deleteFavorite}>Delete from favorites</button>
-                        </div> */}
-                        {/* <p className="codenameHead">
-                            {"Your codename is: " + codename}
-                        </p> */}
 
                         {console.log("This is state -->", state)}
+
+                        {/* USE FIXED HEADER TABLE!! */}
+
                         <ThemeProvider prefixes={{ table: 'my-table' }}>
                             <div className="tableContainer">
                                 <Table

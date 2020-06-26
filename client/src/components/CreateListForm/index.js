@@ -99,25 +99,28 @@ function CreateListForm() {
     
     `}
       </style>
-      <Form.Group controlId="formSearch">
-        <ThemeProvider prefixes={{ form: 'form-text' }}>
-          {/* <Form.Text className="text-muted">
+      <Form.Group className="formsContainer">
+        <Form.Group controlId="formSearch">
+          <ThemeProvider prefixes={{ form: 'form-text' }}>
+            {/* <Form.Text className="text-muted">
           Enter the item name.
           </Form.Text> */}
-        </ThemeProvider>{' '}
-        <ThemeProvider prefixes={{ form: 'form-control' }}>
-          <Form.Control ref={nameRef} type="text" placeholder="Add Item" />
-        </ThemeProvider>{' '}
+          </ThemeProvider>{' '}
+          <ThemeProvider prefixes={{ form: 'form-control' }}>
+            <Form.Control ref={nameRef} type="text" placeholder="Add Item" />
+          </ThemeProvider>{' '}
 
-      </Form.Group>
-      <Form.Group controlId="formQuantity">
-        <ThemeProvider prefixes={{ form: 'form-control' }}>
-          {/* <Form.Text className="text-muted">
+        </Form.Group>
+        <Form.Group controlId="formQuantity">
+          <ThemeProvider prefixes={{ form: 'form-control' }}>
+            {/* <Form.Text className="text-muted">
 
           Enter the item quantity
               </Form.Text> */}
-          <Form.Control ref={quantityRef} type="text" placeholder="Enter Quantity" />
-        </ThemeProvider>{' '}
+            <Form.Control ref={quantityRef} type="text" placeholder="Enter Quantity" />
+          </ThemeProvider>{' '}
+
+        </Form.Group>
 
       </Form.Group>
       <ThemeProvider prefixes={{ btn: 'my-btn' }}>

@@ -34,3 +34,18 @@
 } */
 
 
+.formsContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+}
+.form-group {
+    margin-top: .5rem!important;
+    margin-bottom: .5rem!important;
+}
+#formSearch {
+    margin-right: .25rem;
+}
+#formQuantity {
+    margin-left: .25rem;
+}

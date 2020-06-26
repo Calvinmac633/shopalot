@@ -20,18 +20,22 @@ import Typography from '@material-ui/core/Typography';
 import { Link, useParams } from "react-router-dom";
 import fire from "../config/fire";
 
+import ListGroup from 'react-bootstrap/ListGroup'
+
+// import Button from '@material-ui/core/Button';
+
 const useStyles = makeStyles((theme) => ({
 
     root: {
         margin: ".5rem",
-        marginLeft: "3rem",
-        marginRight: "3rem",
+        marginLeft: "1rem",
+        marginRight: "1rem",
         // height: "100px"
-        backgroundColor: "rgba(255, 255, 255, 0.796)",
+        // backgroundColor: "rgba(255, 255, 255, 0.796)",
+        backgroundColor: "transparent",
         padding: 0,
 
     },
-
     paper: {
         marginTop: theme.spacing(8),
         display: 'flex',
@@ -48,7 +52,6 @@ const useStyles = makeStyles((theme) => ({
         // marginTop: theme.spacing(1),
         color: "#2929FF80",
         margin: 0,
-
     },
     display: {
         display: "flex",
@@ -57,12 +60,14 @@ const useStyles = makeStyles((theme) => ({
         // marginBottom: "200px",
     },
     title: {
-        color: "rgba(49, 30, 111)",
-        fontSize: "1.5rem",
+        // color: "rgba(49, 30, 111)",
+        color: "white",
+        fontSize: "2.5rem",
+        letterSpacing: ".1rem",
+        fontWeight: 500,
         textAlign: "center",
         margin: 0,
     },
-
     button: {
         paddingLeft: ".5rem",
         paddingTop: "0rem",
@@ -77,16 +82,35 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: ".5rem",
         paddingBottom: "0rem",
         margin: 0,
-    }
+    },
+    list: {
+        backgroundColor: "transparent",
+        color: "black",
+        padding: 0,
+    },
+    buttonList: {
+        backgroundColor: "rgb(63,81,181, 0.95)",
+        color: "rgb(225, 225, 225, 0.99)",
+        border: "none",
+        fontSize: "1.25rem",
+        padding: ".25rem",
+        paddingLeft: "1.25rem",
+        paddingRight: "1.25rem",
+        marginBottom: ".5rem",
+        marginTop: ".5rem",
+        letterSpacing: ".15rem",
+        fontWeight: 500,
+    },
+    listGroup: {
+        padding: 0,
+    },
 }));
-
 
 export function Home(props) {
 
     const [state, dispatch] = useStoreContext();
 
     const classes = useStyles();
-
 
     const getAllLists = () => {
         dispatch({ type: LOADING });
@@ -102,9 +126,9 @@ export function Home(props) {
     }
 
     const faveClick = (e) => {
+        console.log(e.target)
         e.preventDefault();
-        API.getList(e.target.value
-        )
+        API.getList(e.target.value)
             .then(res => {
                 window.location.href = "list/" + res.data.codename
             }
@@ -112,70 +136,80 @@ export function Home(props) {
 
     }
 
-    // const logout = (e) => {
-    //     e.preventDefault();
-    //     console.log(e.target.value);
-    //     fire.auth.signOut()
-    // }
-
-    // const {} = useParams()
     useEffect(() => {
         getAllLists();
     }, [])
 
-
-
-
     return (
 
         <div>
-            <AppBar />
-            {/* <button onClick={logout}>Log Out</button> */}
-            <br></br>
-            <h5 id="user">You are signed in as {props.user.email} wooo!</h5>
-            <LookupForms />
-            <Container component="main" maxWidth="xs">
+            {/* <Container component="main" maxWidth="xs"> */}
                 <CssBaseline />
-                <Card className={classes.root} elevation={6}>
+                <Card className={classes.root} elevation={0}>
                     <CardContent className={classes.cardTitles}>
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
                             Your Favorites
                             </Typography>
-
                     </CardContent>
                     {(state.lists.length === 0) ? <div>Create a list above and save to your favorites!</div> :
-                        <ul>
+                        <ul className={classes.listGroup}>
                             {state.lists.map(list => {
 
                                 if (list.favorites.includes(props.user.email)) {
                                     return (
-                                        <CardActions>
-                                            <Link href="/List">
-                                                <Button
-                                                    onClick={faveClick}
-                                                    type="submit"
-                                                    size="small"
-                                                    required
-                                                    className={classes.button}
-                                                    value={list.codename}
-                                                >
-                                                    {list.listname}
-                                                </Button>
-                                            </Link>
-                                        </CardActions>
-                                    )} else {
-                                        return null
-                                    }
+                                        <ListGroup
+                                            variant="flush"
+                                            className={classes.listGroup}
+                                        >
+
+                                            <ListGroup.Item
+                                                className={classes.list}
+                                            >
+                                                <Link href="/List">
+                                                    <Button
+                                                        onClick={faveClick}
+                                                        type="submit"
+                                                        size="small"
+                                                        required
+                                                        className={classes.buttonList}
+                                                        value={list.codename}
+                                                        variant="contained"
+                                                    >
+                                                        {list.listname}
+                                                    </Button>
+                                                </Link>
+                                            </ListGroup.Item>
+                                        </ListGroup>
+                                        // <CardActions>
+                                        //     <Link href="/List">
+                                        //         <Button
+                                        //             onClick={faveClick}
+                                        //             type="submit"
+                                        //             size="small"
+                                        //             required
+                                        //             className={classes.button}
+                                        //             value={list.codename}
+                                        //         >
+                                        //             {list.listname}
+                                        //         </Button>
+                                        //     </Link>
+                                        // </CardActions>
+                                    )
+                                } else {
+                                    return null
                                 }
+                            }
 
                             )}
                         </ul>
                     }
 
                 </Card>
-            </Container>
+            {/* </Container> */}
 
+            <h5 id="user">Signed in as: {props.user.email}</h5>
 
+            <LookupForms />
 
         </div >
 

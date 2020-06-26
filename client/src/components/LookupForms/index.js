@@ -61,7 +61,10 @@ const useStyles = makeStyles((theme) => ({
   },
 
   button: {
-    padding: 0,
+    padding: ".25rem",
+    paddingLeft: ".5rem",
+    paddingRight: ".5rem"
+    // backgroundColor: "primary",
   },
   cardTitles: {
     paddingLeft: ".5rem",
@@ -150,11 +153,13 @@ export default function LookupForms() {
                 <Button
                   onClick={handleSubmit}
                   type="submit"
-                  size="small"
+                  size="large"
                   required
                   className={classes.button}
+                  variant="contained" 
+                  color="primary"
                 >
-                  let's create
+                  CREATE
                 </Button>
               </Link>
             </CardActions>
@@ -195,10 +200,14 @@ export default function LookupForms() {
                 <Button
                   onClick={handleSubmitCodename}
                   type="submit"
-                  size="small"
+                  size="large"
                   required
+                  className={classes.button}
+                  className={classes.button}
+                  variant="contained" 
+                  color="primary"
                 >
-                  Let's Search
+                  SEARCH
                 </Button>
               </Link>
             </CardActions>

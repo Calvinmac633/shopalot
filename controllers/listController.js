@@ -37,11 +37,11 @@ module.exports = {
       db.shopalotDB
         .findOneAndUpdate(
           { codename: req.params.codename },
-          {favorites: req.body.favorites},
+          { favorites: req.body.favorites },
           { new: true }
         )
         .then(dbModel => {
-          console.log("this is db model first (fave) option",dbModel)
+          console.log("this is db model first (fave) option", dbModel)
           res.json(dbModel)
         })
         .catch(err => {
@@ -53,11 +53,11 @@ module.exports = {
       db.shopalotDB
         .findOneAndUpdate(
           { codename: req.params.codename },
-          {favorites: req.body.favorites},
+          { favorites: req.body.favorites },
           { new: true }
         )
         .then(dbModel => {
-          console.log("this is db model first (fave) option",dbModel)
+          console.log("this is db model first (fave) option", dbModel)
           res.json(dbModel)
         })
         .catch(err => {
@@ -72,10 +72,13 @@ module.exports = {
           { codename: req.params.codename },
           {
             $push: {
-              items:
-              {
-                itemName: req.body.itemName,
-                quantity: req.body.quantity
+              items: {
+                $each: [
+                  {
+                    itemName: req.body.itemName,
+                    quantity: req.body.quantity
+                  }],
+                $position: 0,
               }
             }
           },
@@ -83,7 +86,7 @@ module.exports = {
 
         )
         .then(dbModel => {
-          console.log("This is second option dbModel",dbModel)
+          console.log("This is second option dbModel", dbModel)
           res.json(dbModel)
         })
         .catch(err => {

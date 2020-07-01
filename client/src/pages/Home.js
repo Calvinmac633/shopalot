@@ -67,6 +67,18 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 500,
         textAlign: "center",
         margin: 0,
+        fontFamily: "'Montserrat', sans-serif;",
+        borderBottom: "rgba(200,200,200,0.75) solid 2px"
+    },
+    titleLine: {
+        // color: "rgba(49, 30, 111)",
+        color: "white",
+        fontSize: ".5rem",
+        letterSpacing: ".1rem",
+        fontWeight: 900,
+        textAlign: "center",
+        margin: 0,
+        fontFamily: "'Montserrat', sans-serif;",
     },
     button: {
         paddingLeft: ".5rem",
@@ -144,70 +156,71 @@ export function Home(props) {
 
         <div>
             {/* <Container component="main" maxWidth="xs"> */}
-                <CssBaseline />
-                <Card className={classes.root} elevation={0}>
-                    <CardContent className={classes.cardTitles}>
-                        <Typography className={classes.title} color="textSecondary" gutterBottom>
-                            Your Favorites
+            <CssBaseline />
+            <Card className={classes.root} elevation={0}>
+                <CardContent className={classes.cardTitles}>
+                    <Typography className={classes.title} color="textSecondary" gutterBottom>
+                        Your Favorites
                             </Typography>
-                    </CardContent>
-                    {(state.lists.length === 0) ? <div>Create a list above and save to your favorites!</div> :
-                        <ul className="listGroup">
-                            {state.lists.map(list => {
+                    {/* <p className={classes.titleLine}>|||||||||||||||||||||||||||</p> */}
+                </CardContent>
+                {(state.lists.length === 0) ? <div>Create a list above and save to your favorites!</div> :
+                    <ul className="listGroup">
+                        {state.lists.map(list => {
 
-                                if (list.favorites.includes(props.user.email)) {
-                                    return (
-                                        <ListGroup
-                                            variant="flush"
-                                            className={classes.listGroup}
+                            if (list.favorites.includes(props.user.email)) {
+                                return (
+                                    <ListGroup
+                                        variant="flush"
+                                        className={classes.listGroup}
+                                    >
+
+                                        <ListGroup.Item
+                                            className={classes.list}
                                         >
-
-                                            <ListGroup.Item
-                                                className={classes.list}
-                                            >
-                                                <Link href="/List">
-                                                    <Button
-                                                        onClick={faveClick}
-                                                        type="submit"
-                                                        size="small"
-                                                        required
-                                                        className={classes.buttonList}
-                                                        value={list.codename}
-                                                        variant="contained"
-                                                    >
-                                                        {list.listname}
-                                                    </Button>
-                                                </Link>
-                                            </ListGroup.Item>
-                                        </ListGroup>
-                                        // <CardActions>
-                                        //     <Link href="/List">
-                                        //         <Button
-                                        //             onClick={faveClick}
-                                        //             type="submit"
-                                        //             size="small"
-                                        //             required
-                                        //             className={classes.button}
-                                        //             value={list.codename}
-                                        //         >
-                                        //             {list.listname}
-                                        //         </Button>
-                                        //     </Link>
-                                        // </CardActions>
-                                    )
-                                } else {
-                                    return null
-                                }
+                                            <Link href="/List">
+                                                <Button
+                                                    onClick={faveClick}
+                                                    type="submit"
+                                                    size="small"
+                                                    required
+                                                    className={classes.buttonList}
+                                                    value={list.codename}
+                                                    variant="contained"
+                                                >
+                                                    {list.listname}
+                                                </Button>
+                                            </Link>
+                                        </ListGroup.Item>
+                                    </ListGroup>
+                                    // <CardActions>
+                                    //     <Link href="/List">
+                                    //         <Button
+                                    //             onClick={faveClick}
+                                    //             type="submit"
+                                    //             size="small"
+                                    //             required
+                                    //             className={classes.button}
+                                    //             value={list.codename}
+                                    //         >
+                                    //             {list.listname}
+                                    //         </Button>
+                                    //     </Link>
+                                    // </CardActions>
+                                )
+                            } else {
+                                return null
                             }
+                        }
 
-                            )}
-                        </ul>
-                    }
+                        )}
+                    </ul>
+                }
 
-                </Card>
+            </Card>
             {/* </Container> */}
 
-            <h5 id="user">Signed in as: {props.user.email}</h5>
+            <h5 id="user">Signed in as: <em>{props.user.email}</em></h5>
 
             <LookupForms />
 

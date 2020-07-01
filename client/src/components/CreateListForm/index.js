@@ -80,7 +80,7 @@ function CreateListForm() {
     .form-control{
       width:200;
       margin: auto;
-      font-Family: londrina Shadow;
+      font-Family: 'Montserrat', sans-serif;;
       font-size: 60px;
       border: 3px solid #856c8b;
   }
@@ -88,10 +88,11 @@ function CreateListForm() {
     .form-control{
       width:200;
       margin: auto;
-      font-Family: Open Sans;
+      font-Family: 'Montserrat', sans-serif;;
       font-size: 1rem;
       border: 3px solid rgb(63,81,181);
   }
+  
   .form-text{
     margin: auto;
     font-size:1rem;
@@ -107,18 +108,18 @@ function CreateListForm() {
           Enter the item name.
           </Form.Text> */}
           </ThemeProvider>{' '}
-          <ThemeProvider prefixes={{ form: 'form-control' }}>
+          <ThemeProvider prefixes={{ form: 'form-control form-control-search' }}>
             <Form.Control ref={nameRef} type="text" placeholder="Add Item" />
           </ThemeProvider>{' '}
 
         </Form.Group>
         <Form.Group controlId="formQuantity">
-          <ThemeProvider prefixes={{ form: 'form-control' }}>
+          <ThemeProvider prefixes={{ form: 'form-control form-control-search' }}>
             {/* <Form.Text className="text-muted">
 
           Enter the item quantity
               </Form.Text> */}
-            <Form.Control ref={quantityRef} type="text" placeholder="Enter Quantity" />
+            <Form.Control ref={quantityRef} type="text" placeholder="Quantity" />
           </ThemeProvider>{' '}
 
         </Form.Group>

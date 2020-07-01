@@ -9,6 +9,7 @@ li, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: .75rem;
 }
 
 
@@ -29,6 +30,14 @@ li, body {
 }
 #user {
     color: white;
+    font-weight: 500;
+    font-size: 1.1rem;
+    border-bottom: rgba(255, 255, 255, 0.381) solid 1px;
+    border-top: rgba(255, 255, 255, 0.381) solid 1px;
+    font-Family: 'Roboto', sans-serif;
     padding: .25rem;
     text-align: center;
+    /* background: -webkit-linear-gradient(rgb(255, 199, 114), rgb(255, 255, 255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }

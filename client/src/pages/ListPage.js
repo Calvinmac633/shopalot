@@ -16,10 +16,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import Checkbox from '@material-ui/core/Checkbox';
+// import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-
+import { createMuiTheme } from '@material-ui/core/styles'
 
 // import codename from ZOEYTHING
 export function ListPage(props) {
@@ -121,15 +121,37 @@ export function ListPage(props) {
         setChecked(newChecked);
     };
 
+
+
+    const theme = createMuiTheme({
+        typography: {
+            body2: {
+                fontSize: "500rem",
+            }
+        }
+    })
     const useStyles = makeStyles((theme) => ({
         root: {
             width: '100%',
             maxWidth: 1200,
-            backgroundColor: theme.palette.background.paper,
+            // backgroundColor: theme.palette.background.paper,
+            backgroundColor: "rgba(250, 250, 250, 0.9)",
         },
     }));
     const classes = useStyles();
     var count = 1
+
+    function copy() {
+        var text = document.getElementById("codenameText").innerText;
+        var elem = document.createElement("textarea");
+        document.body.appendChild(elem);
+        elem.value = text;
+        elem.select();
+        document.execCommand("copy");
+        document.body.removeChild(elem);
+        alert("Your password has been copied to your clipboard!")
+    }
+
     return (
         state.currentList.codename !== 0 ? (<div>
             <style type="text/css">
@@ -148,53 +170,61 @@ export function ListPage(props) {
             <main role="main">
                 <section>
                     <div class="container">
-
                         <h2>"{state.currentList.listname}"</h2>
                         {console.log("this be strate", state)}
                         <CreateListForm />
 
-                        {state.currentList.items ?
-                        <>
-                            <List className={classes.root}>
-                                {state.currentList.items.map(item =>
-                                    <ListItem role={undefined} dense button onClick={handleToggle(count)}>
-                                        <ListItemIcon>
-                                            <Checkbox
-                                                edge="start"
-                                                checked={checked.indexOf(count++) !== -1}
-                                                tabIndex={-1}
-                                                disableRipple
-                                                inputProps={{ 'aria-labelledby': count++ }}
-                                            />
-                                        </ListItemIcon>
-                                        <ListItemText primary={item.itemName} secondary={item.quantity} />
-                                        <ListItemSecondaryAction>
-                                            <IconButton edge="end" aria-label="comments">
-                                                <DeleteIcon onClick={() => {
-                                                    removeListItem(item._id)
-                                                }}/>
-                                            </IconButton>
-                                        </ListItemSecondaryAction>
-                                    </ListItem>
-                                    // <td>{item.itemName}</td>
-                                    // <td>{item.quantity}</td>
-                                    // <td><Button style={{ display: "flex", justifyContent: "center", margin: "auto", marginTop: ".15rem", marginBottom: ".15rem", height: "1.5rem", width: "1.5rem", alignItems: "center" }} onClick={() => {
-                                    //     removeListItem(item._id)
-                                    // }}>
-                                    //     <FontAwesomeIcon style={{ height: ".5rem", width: ".5rem" }} icon={faCheck}>
-                                    //         {item.purchased}
-                                    //     </FontAwesomeIcon>
-                                    // </Button>
-                                    // </td>
-                                    // </ListItem>
-                                )}
+                        {state.currentList.items.length > 0 ?
+                            <>
+                                <List className={classes.root}>
+                                    {state.currentList.items.map(item =>
+                                        <ListItem role={undefined} dense button onClick={handleToggle(count)}>
+                                            {/* <ListItemIcon>
+                                                <Checkbox
+                                                    edge="start"
+                                                    checked={checked.indexOf(count++) !== -1}
+                                                    tabIndex={-1}
+                                                    disableRipple
+                                                    inputProps={{ 'aria-labelledby': count++ }, {'aria-label': 'secondary checkbox'}}
+                                                />
+                                            </ListItemIcon> */}
+                                            <ListItemIcon>
+                                                <div>{count++}</div>
+                                            </ListItemIcon>
+                                            <ListItemText style={{ fontSize: '2rem!important' }} primary={item.itemName} secondary={item.quantity} />
+                                            <ListItemSecondaryAction>
+                                                <IconButton edge="end" aria-label="comments">
+                                                    <DeleteIcon onClick={() => {
+                                                        removeListItem(item._id)
+                                                    }} />
+                                                </IconButton>
+                                            </ListItemSecondaryAction>
+                                        </ListItem>
+                                        // <td>{item.itemName}</td>
+                                        // <td>{item.quantity}</td>
+                                        // <td><Button style={{ display: "flex", justifyContent: "center", margin: "auto", marginTop: ".15rem", marginBottom: ".15rem", height: "1.5rem", width: "1.5rem", alignItems: "center" }} onClick={() => {
+                                        //     removeListItem(item._id)
+                                        // }}>
+                                        //     <FontAwesomeIcon style={{ height: ".5rem", width: ".5rem" }} icon={faCheck}>
+                                        //         {item.purchased}
+                                        //     </FontAwesomeIcon>
+                                        // </Button>
+                                        // </td>
+                                        // </ListItem>
+                                    )}
 
-                            </List>
-                            <br></br>
-                            <div className="faveButtonContainer">
-                                <button className="saveFaveButton" onClick={addFavorite}>Save to favorites</button>
-                                <button className="deleteFaveButton" onClick={deleteFavorite}>Delete from favorites</button>
-                            </div>
+                                </List>
+                                <br></br>
+                                <div className="faveButtonContainer">
+                                    <button className="saveFaveButton" onClick={addFavorite}>Save to favorites</button>
+                                    <button className="deleteFaveButton" onClick={deleteFavorite}>Delete from favorites</button>
+                                </div>
+                                <h4>Share this List's codename with others:</h4>
+                                <button id="codenameText" onClick={copy} className="codenameButton">
+                                <h3>{state.currentList.codename}</h3>
+                                    </button>
+                                    <small>Click to copy to Clipboard!</small>
+                                    <br></br>
                             </>
 
                             : null

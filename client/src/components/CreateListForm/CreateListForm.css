@@ -45,7 +45,9 @@
 }
 #formSearch {
     margin-right: .25rem;
+
 }
 #formQuantity {
     margin-left: .25rem;
+    width: 100px;
 }

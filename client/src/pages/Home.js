@@ -24,6 +24,8 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 // import Button from '@material-ui/core/Button';
 
+let header = "";
+
 const useStyles = makeStyles((theme) => ({
 
     root: {
@@ -152,6 +154,17 @@ export function Home(props) {
         getAllLists();
     }, [])
 
+    let isFavorite = false;
+
+    state.lists.forEach(list => {
+        if (list.favorites.includes(props.user.email)) {
+            return isFavorite = true;
+        } else {
+           return null
+        }
+    });
+    console.log(isFavorite)
+
     return (
 
         <div>
@@ -164,6 +177,16 @@ export function Home(props) {
                             </Typography>
                     {/* <p className={classes.titleLine}>|||||||||||||||||||||||||||</p> */}
                 </CardContent>
+
+                {/* {state.lists.forEach(list => {
+                  if (list.favorites.includes(state.user.email)) {
+
+                  }  else {
+
+                  }
+                })} */}
+
+
                 {(state.lists.length === 0) ? <div>Create a list above and save to your favorites!</div> :
                     <ul className="listGroup">
                         {state.lists.map(list => {
@@ -174,7 +197,7 @@ export function Home(props) {
                                         variant="flush"
                                         className={classes.listGroup}
                                     >
-
+                                        {header === 0}
                                         <ListGroup.Item
                                             className={classes.list}
                                         >
@@ -209,11 +232,12 @@ export function Home(props) {
                                     // </CardActions>
                                 )
                             } else {
-                                return null
+                                header = 1
                             }
                         }
 
                         )}
+                        {isFavorite === false ? <h5 style={{ marginBottom: "none", fontSize: ".9rem", color: "black", textAlign: "center", fontWeight: "500", backgroundColor: "rgba(255,255,255,0.4)" }}>Create or join a list using the forms below!</h5> : null}
                     </ul>
                 }
 

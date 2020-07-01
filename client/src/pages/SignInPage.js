@@ -64,8 +64,9 @@ class SignInPage extends Component {
                         <input value={this.state.password} onChange={this.handleChange} type="password"
                         name="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                     </div>
-                    <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
-                    <button type="submit" onClick={this.signup} style={{marginLeft: "25px"}} className="btn btn-success">Signup</button>
+                    <br></br>
+                    <button type="submit" onClick={this.login} className="btn btn-primary btn-lg waves-effect">Login</button>
+                    <button type="submit" onClick={this.signup} style={{marginLeft: "25px"}} className="btn btn-outline-light btn-lg waves-effect">Signup</button>
                 </form>
             </div>
 

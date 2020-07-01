@@ -223,7 +223,7 @@ export function ListPage(props) {
                                 <button id="codenameText" onClick={copy} className="codenameButton">
                                 <h3>{state.currentList.codename}</h3>
                                     </button>
-                                    <small>Click to copy to Clipboard!</small>
+                                    <small id="copyClip" >Click to copy to Clipboard!</small>
                                     <br></br>
                             </>
 

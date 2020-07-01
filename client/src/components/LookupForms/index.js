@@ -17,7 +17,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Form } from "react-bootstrap";
-import FavoritesList from "../FavoritesList"
 
 const useStyles = makeStyles((theme) => ({
 
@@ -26,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     // height: "100px"
     backgroundColor: "rgba(255, 255, 255, 0.796)",
     padding: 0,
+    fontFamily: "'Montserrat', sans-serif",
   },
   paper: {
     marginTop: theme.spacing(8),
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     // marginTop: theme.spacing(1),
     color: "#2929FF80",
     margin: 0,
-
+    fontFamily: "'Montserrat', sans-serif",
   },
   display: {
     display: "flex",
@@ -135,7 +135,7 @@ export default function LookupForms() {
                 create new list
               </Typography>
 
-              <Form.Control className={classes.form} style={{ fontSize: '1rem', fontFamily: 'Open Sans' }}
+              <Form.Control className={classes.form} 
                 ref={listNameRef}
                 variant="outlined"
                 margin="normal"
@@ -181,7 +181,7 @@ export default function LookupForms() {
               </Typography>
 
 
-              <Form.Control style={{ fontSize: '1rem', fontFamily: 'Open Sans' }}
+              <Form.Control 
                 className={classes.form}
                 ref={codeNameRef}
                 variant="outlined"
@@ -213,7 +213,6 @@ export default function LookupForms() {
             </CardActions>
 
           </Card>
-          <FavoritesList />
 
         </Container>
       </div>

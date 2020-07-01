@@ -57,7 +57,7 @@ export default function ExportAppBar(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <a className={classes.logo} style={{ color: 'white' }} href="/home">Check it Out</a>
+            <a className={classes.logo} style={{ color: 'white' }} href="/home">Shopalot</a>
           </Typography>
           {props.children}
           {/* <Button className="NavButton" color="inherit"><a style={{ color: "white", marginTop: ".2rem" }} href="/home"><FontAwesomeIcon style={{ height: "2rem", width: "2rem" }} icon={props.text1} >></FontAwesomeIcon></a></Button> */}

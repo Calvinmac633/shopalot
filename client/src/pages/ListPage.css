@@ -1,62 +1,3 @@
-tr{
-    color: white;
-    border: 2px solid #f3c623;
-    font-family:londrina Shadow;
-    font-Size: 35px;
-    background-color:#3f8cb5;
-    text-align: center;
-    padding: 0%;
-    padding-bottom: 0;
-   
-}
-th{
-    color: white;
-    border: 2px solid #f3c623;
-    font-family:londrina Shadow;
-    font-Size: 35px;
-    background-color:#3f8cb5;
-    text-align: center;
-    padding: 0%;
-    padding-bottom: 0;
-   
-}
-
-td{
-    color: #3f8cb5;
-    font-family: Roboto;
-    font-Size: 21px;
-    background-color: white;
-    border: 2px solid #f3c623;
-    padding: 0;
-    
-}
-.countCell {
-    padding-right: .5rem;
-    padding-left: .5rem;
-}
-@media (max-width: 1200px ) {
-    th{
-        font-Size: 1.5rem;
-        
-    }
-    td {
-        font-size: 1rem;
-    }
-    .countCell {
-        padding-right: .5rem;
-        padding-left: .5rem;
-    }
-  }
-.table-bordered td{
-    border: 2px solid #f3c623;
-}
-.table-bordered thead td, .table-bordered thead th{
-    border: 2px solid #f3c623;
-    
-}
-.table {
-    padding-bottom: 0rem;
-}
 
 h1{
     font-family:londrina Shadow;
@@ -116,4 +57,57 @@ h2 {
     color: white;
     font-weight: 400;
     font-size: 6vw!important;
+    margin-top: 1rem!important;
+}
+h4 {
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 5vw!important;
+    margin-top: 1rem!important;
+}
+h3 {
+    text-align: center;
+    color: rgb(32, 66, 154);
+    font-weight: 400;
+    font-size: 5vw!important;
+    margin: 0 auto;
+    padding: .15rem;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 0;
+
+}
+small {
+    text-align: center;
+    color: white;
+    font-weight: 900;
+    font-size: 4vw!important;
+    margin: 0 auto;
+    padding: .15rem;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 0;
+
+}
+
+.MuiTypography-body2, .MuiTypography-displayBlock {
+    font-size: 1.1em!important;
+}
+
+.codenameButton {
+    border: none;
+    padding: none;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    color: rgb(32, 66, 154);
+    font-weight: 400;
+    font-size: 5vw!important;
+    background-color: rgba(255, 255, 255, 0.836);
+    width: 60%;
+    align-content: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

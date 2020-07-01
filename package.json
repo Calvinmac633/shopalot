@@ -9,9 +9,8 @@
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -20,11 +19,17 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
     "@material-ui/core": "^4.9.11",
     "axios": "^0.19.2",
+    "babel-core": "^6.26.3",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
-    "css-loader": "^3.5.3",
+    "compression": "^1.7.4",
+    "css-loader": "^3.6.0",
+    "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "firebase": "^7.15.4",
     "if-env": "^1.0.4",

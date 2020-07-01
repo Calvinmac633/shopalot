@@ -17,7 +17,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Form } from "react-bootstrap";
-import FavoritesList from "../FavoritesList"
 
 const useStyles = makeStyles((theme) => ({
 
@@ -213,7 +212,6 @@ export default function LookupForms() {
             </CardActions>
 
           </Card>
-          <FavoritesList />
 
         </Container>
       </div>

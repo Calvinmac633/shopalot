@@ -1,0 +1,44 @@
+{
+  "icons": [
+    {
+      "src": "assets/icons/icon_512x512.74888f8eb992935cf37185a490a7b30f.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/icons/icon_384x384.b5df6e8f39f75414d7a33fbf1ed629cf.jpeg",
+      "sizes": "384x384",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/icons/icon_256x256.cb05502ba15f95e6c6f6e8eb3ff2ac07.jpeg",
+      "sizes": "256x256",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/icons/icon_192x192.2abbbb6fd2c223a3e2ea1e456efe652d.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/icons/icon_128x128.63e484fe2c36ca32f71227bd8f6fb4fe.jpeg",
+      "sizes": "128x128",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/icons/icon_96x96.b689c051e0bcd0267461c948346386a5.jpeg",
+      "sizes": "96x96",
+      "type": "image/jpeg"
+    }
+  ],
+  "name": "shopalot",
+  "short_name": "shopalot",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/",
+  "description": "An application for images",
+  "background_color": "#01579b",
+  "theme_color": "#ffffff",
+  "theme-color": "#ffffff",
+  "prefer_related_applications": true
+}
